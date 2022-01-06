@@ -1,3 +1,3 @@
 # **Writeups and Stuff**
 
-![image1](docs/assets/fetchimage.jpg)
+![image1](docs/assets/images/fetchimage.jpg)
