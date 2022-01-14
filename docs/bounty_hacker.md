@@ -1,6 +1,6 @@
 # **Bounty Hacker**
 
-This is a writeup for the TryHackMe room Bounty Hacker.
+This is a writeup for the TryHackMe room Bounty Hacker. [**Room**](https://tryhackme.com/room/cowboyhacker)
 
 We'll start off with an nmap scan.
 
