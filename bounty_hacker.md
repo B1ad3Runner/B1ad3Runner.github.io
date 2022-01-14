@@ -1,4 +1,4 @@
-#Bounty Hacker
+# **Bounty Hacker**
 
 This is a writeup for the TryHackMe room Bounty Hacker.
 
