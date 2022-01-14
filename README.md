@@ -2,4 +2,4 @@
 
 ![banner](docs/assets/images/fetchimage.jpg)
 
-[# Bounty Hacker](docs/bounty-hacker.md)
+[# Bounty Hacker](docs/bounty_hacker.md)
