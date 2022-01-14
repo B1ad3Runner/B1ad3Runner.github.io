@@ -1,3 +1,5 @@
 # **Writeups and Stuff**
 
-![image1](docs/assets/images/fetchimage.jpg)
+![banner](docs/assets/images/fetchimage.jpg)
+
+![bounty hacker](bounty-hacker.md)
