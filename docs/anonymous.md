@@ -45,7 +45,7 @@ ftp $ip
 
 When prompted for a username input **anonymous**, and when prompted for a password press **ENTER**.
 
-![ftp_shown](assets/images/anonymous/ftp_shown.png)
+![ftp_shown](assets/images/anonymous/ftp_show.png)
 
 The scripts folder has some interesting sounding files in it, so let's get those. The command `get` can be used to download files from FTP.
 
