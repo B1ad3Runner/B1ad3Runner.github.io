@@ -51,7 +51,7 @@ The scripts folder has some interesting sounding files in it, so let's get those
 
 ![ftp_get](assets/images/anonymous/ftp_get.png)
 
-Let's see what those files are, **clean.sh** seem the most interesting so we'll check that first.
+Let's see what those files are, **clean.sh** seems the most interesting so we'll check that first.
 
 ![clean-sh](assets/images/anonymous/clean-sh-cat.png)
 
