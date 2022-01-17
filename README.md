@@ -9,4 +9,4 @@
 
 
 
-[badge](https://tryhackme.com/badge/805944)
+<script>https://tryhackme.com/badge/805944</script>
