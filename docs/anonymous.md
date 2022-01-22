@@ -3,7 +3,7 @@ This is a writeup for the TryHackMe room [anonymous](https://tryhackme.com/room/
 
 The questions ask about ports, so let's start with an nmap scan.
 
-```zsh
+```bash
 nmap -sV $ip
 ```
 
